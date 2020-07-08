@@ -7,6 +7,9 @@ buildscript {
     repositories {
         mavenCentral()
         jcenter()
+
+//        OJDBC
+//        maven { url "https://code.lds.org/nexus/content/groups/main-repo"}
     }
 //    프로젝트에 필요한 의존성 선언
     dependencies {
@@ -32,6 +35,16 @@ repositories {
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
 //        implementation 'org.springframework.boot:spring-boot-starter-web'
+    compile('org.projectlombok:lombok')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
+//    compile ('com.oracle:ojdbc6:11.2.0.3')
+    compile('org.springframework.boot:spring-boot-starter-mustache')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
+    compile('org.springframework.boot:spring-boot-starter-json')
+    compile('org.springframework.boot:spring-boot-starter-data-rest')
+    compile('org.springframework.boot:spring-boot-starter-batch')
+    compile('org.springframework.boot:spring-boot-devtools')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 //    testImplementation  'org.springframework.boot:spring-boot-starter-test'
