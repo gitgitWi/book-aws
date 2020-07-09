@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 // Main Class of Spring Boot
 
-@EnableJpaAuditing // activate JPA Auditing (BaseTimeEntity)
+//@EnableJpaAuditing // activate JPA Auditing (BaseTimeEntity)
 // Annotation for auto-configuration of Spring Boot
 // Must be on the "Top" of Project
 @SpringBootApplication

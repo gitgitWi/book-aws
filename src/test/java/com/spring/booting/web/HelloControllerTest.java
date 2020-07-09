@@ -1,9 +1,14 @@
 package com.spring.booting.web;
 
+import com.spring.booting.config.auth.SecurityConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.FilterType;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.stereotype.Component;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
@@ -14,7 +19,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 // Spring Boot Test와 JUnit 사이 연결자 역할 ; JUnit에 내장된 실행자 외 다른 실행자 실행, 여기서는 SpringRunner라는 실행자 실행
 @RunWith(SpringRunner.class)
 // Web(Spring MVC)에 집중하는 annotation, @Controller, @ControllerAdvice 등 사용, @Service, @Component, @Repository 등 사용 불가
-@WebMvcTest
+@WebMvcTest(controllers = HelloController.class, excludeFilters = {@ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, classes = SecurityConfig.class)})
 public class HelloControllerTest {
     
 //    Spring Bean 주입
@@ -22,6 +27,7 @@ public class HelloControllerTest {
     @Autowired
     private MockMvc mvc;
 
+    @WithMockUser(roles = "USER")
     @Test
     public void return_Hello() throws Exception {
         String hello = "hello";
@@ -31,6 +37,7 @@ public class HelloControllerTest {
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
     }
 
+    @WithMockUser(roles = "USER")
     @Test
     public void return_HelloDto() throws Exception {
         String name = "hello";
