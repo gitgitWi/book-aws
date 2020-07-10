@@ -9,7 +9,7 @@ cp $REPOSITORY/zip/*.jar $REPOSITORY/
 
 echo "> Check Current Application PIDs"
 
-CURRENT_PID=$(pgrep -fl book-aws | grep jar | awk '{print $1}')
+CURRENT_PID=$(pgrep -fl sams | grep jar | awk '{print $1}')
 
 echo "> Current Application PID : $CURRENT_PID"
 
