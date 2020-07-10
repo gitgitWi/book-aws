@@ -24,7 +24,7 @@ apply plugin : 'org.springframework.boot'
 apply plugin : 'io.spring.dependency-management'
 
 group 'com.spring'
-version '1.0-SNAPSHOT-'+new Date().format("yyyyMMddHHmm")
+version '1.0.1-SNAPSHOT-'+new Date().format("yyyyMMddHHmm")
 sourceCompatibility = 1.8
 
 repositories {
