@@ -34,7 +34,7 @@ deploy:
     wait-until-deployed: true
 
   - provider: codedeploy
-    access_key_id: : $AWS_ACCESS_KEY
+    access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $$AWS_SECRET_KEY
     bucket: spring-boot-0701-build
     key: book-aws.zip
