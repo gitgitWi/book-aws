@@ -26,7 +26,7 @@ echo "> Deploy New Application"
 
 JAR_NAME=$(ls -tr $REPOSITORY/*.jar | tail -n 1)
 
-echo "> JAR NAME : JAR_NAME"
+echo "> JAR NAME : $JAR_NAME"
 
 echo "> Add Execution Authority to $JAR_NAME"
 
